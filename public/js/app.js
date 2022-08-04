@@ -71,14 +71,14 @@ const createInputElem = (
 };
 
 const headerInput = createInputElem("form-control me-2", "search", "Search");
-const headerBtn = createBtnElem("Search", "btn btn-outline-success", "submit");
+const headerBtn = createBtnElem("Search", "btn btn-outline-dark", "submit");
 const headerForm = createFormElem("d-flex", [headerInput, headerBtn]);
-const headerA = createAElem("#", "test", "navbar-brand");
+const headerA = createAElem("#", "test", "navbar-brand fs-3");
 const headerSection = createSectionElem("container-fluid", [
   headerA,
   headerForm,
 ]);
-const headerNav = createNaveElem("navbar bg-light", [headerSection]);
+const headerNav = createNaveElem("navbar blue-bg", [headerSection]);
 const headerHead = createHeaderElem("", [headerNav]);
 
 appContainer.append(headerHead);
