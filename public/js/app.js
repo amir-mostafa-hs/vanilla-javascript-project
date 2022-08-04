@@ -72,28 +72,51 @@ const createInputElem = (
   return input;
 };
 
-const headerInput = createInputElem("form-control me-2", "search", "Search");
-const headerBtn = createBtnElem("Search", "btn btn-outline-light", "submit");
-const headerForm = createFormElem("d-flex", [headerInput, headerBtn]);
-const headerImg = createImgElem(
-  "https://img.icons8.com/bubbles/2x/america.png",
-  "d-inline-block align-text-top me-2",
-  "website icon"
-);
-headerImg.width = 45;
-headerImg.height = 45;
-const headerA = createAElem(
-  "/",
-  "Country App",
-  "align-middle navbar-brand fs-3",
-  "",
-  headerImg
-);
-const headerSection = createSectionElem("container-fluid", [
-  headerA,
-  headerForm,
-]);
-const headerNav = createNaveElem("navbar navbar-dark blue-bg", [headerSection]);
-const headerHead = createHeaderElem("", [headerNav]);
+class Header {
+  constructor(iconSrc, headerTest) {
+    this.iconSrc = iconSrc;
+    this.headerTest = headerTest;
+  }
+  createHeader() {
+    const headerInput = createInputElem(
+      "form-control me-2",
+      "search",
+      "Search"
+    );
+    const headerBtn = createBtnElem(
+      "Search",
+      "btn btn-outline-light",
+      "submit"
+    );
+    const headerForm = createFormElem("d-flex", [headerInput, headerBtn]);
+    const headerImg = createImgElem(
+      this.iconSrc,
+      "d-inline-block align-text-top me-2",
+      "website icon"
+    );
+    headerImg.width = 45;
+    headerImg.height = 45;
+    const headerA = createAElem(
+      "/",
+      this.headerTest,
+      "align-middle navbar-brand fs-3",
+      "",
+      headerImg
+    );
+    const headerSection = createSectionElem("container-fluid", [
+      headerA,
+      headerForm,
+    ]);
+    const headerNav = createNaveElem("navbar navbar-dark blue-bg", [
+      headerSection,
+    ]);
+    const headerHead = createHeaderElem("", [headerNav]);
+    return headerHead;
+  }
+}
 
-appContainer.append(headerHead);
+const header = new Header(
+  "https://img.icons8.com/bubbles/2x/america.png",
+  "Country App"
+).createHeader();
+appContainer.append(header);
