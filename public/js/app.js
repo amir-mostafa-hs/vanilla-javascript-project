@@ -41,13 +41,15 @@ const createAElem = (
   hrefElem,
   textElem,
   className = "",
-  targetElem = "_self"
+  targetElem = "_self",
+  chileElem = []
 ) => {
   const a = document.createElement("a");
   a.href = hrefElem;
   a.textContent = textElem;
   a.className = className;
   a.target = targetElem;
+  a.prepend(chileElem);
   return a;
 };
 
@@ -71,14 +73,27 @@ const createInputElem = (
 };
 
 const headerInput = createInputElem("form-control me-2", "search", "Search");
-const headerBtn = createBtnElem("Search", "btn btn-outline-dark", "submit");
+const headerBtn = createBtnElem("Search", "btn btn-outline-light", "submit");
 const headerForm = createFormElem("d-flex", [headerInput, headerBtn]);
-const headerA = createAElem("#", "test", "navbar-brand fs-3");
+const headerImg = createImgElem(
+  "https://img.icons8.com/bubbles/2x/america.png",
+  "d-inline-block align-text-top me-2",
+  "website icon"
+);
+headerImg.width = 45;
+headerImg.height = 45;
+const headerA = createAElem(
+  "/",
+  "Country App",
+  "align-middle navbar-brand fs-3",
+  "",
+  headerImg
+);
 const headerSection = createSectionElem("container-fluid", [
   headerA,
   headerForm,
 ]);
-const headerNav = createNaveElem("navbar blue-bg", [headerSection]);
+const headerNav = createNaveElem("navbar navbar-dark blue-bg", [headerSection]);
 const headerHead = createHeaderElem("", [headerNav]);
 
 appContainer.append(headerHead);
