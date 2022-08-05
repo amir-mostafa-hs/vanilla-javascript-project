@@ -72,6 +72,34 @@ const createInputElem = (
   return input;
 };
 
+const createFooterElem = (classElem = "", chileElem = []) => {
+  const footer = document.createElement("footer");
+  footer.className = classElem;
+  footer.append(...chileElem);
+  return footer;
+};
+
+const createIElem = (classElem = "") => {
+  const i = document.createElement("i");
+  i.className = classElem;
+  return i;
+};
+
+const createAsideElem = (classElem = "", chileElem = []) => {
+  const aside = document.createElement("aside");
+  aside.className = classElem;
+  aside.append(...chileElem);
+  return aside;
+};
+
+const createPElem = (classElem = "", textElem = "", chileElem = []) => {
+  const p = document.createElement("p");
+  p.className = classElem;
+  p.textContent = textElem;
+  p.append(...chileElem);
+  return p;
+};
+
 class Header {
   constructor(iconSrc, headerTest) {
     this.iconSrc = iconSrc;
@@ -120,3 +148,65 @@ const header = new Header(
   "Country App"
 ).createHeader();
 appContainer.append(header);
+
+class Footer {
+  constructor(linkedin, github, website) {
+    this.linkedin = linkedin;
+    this.github = github;
+    this.website = website;
+  }
+  createFooter() {
+    const footerLinkedinIcon = createIElem("bi bi-linkedin");
+    const footerLinkedinLink = createAElem(
+      this.linkedin,
+      "",
+      "btn btn-outline-light rounded-circle m-1",
+      "",
+      footerLinkedinIcon
+    );
+
+    const footerGithubIcon = createIElem("bi bi-github");
+    const footerGithubLink = createAElem(
+      this.github,
+      "",
+      "btn btn-outline-light rounded-circle m-1",
+      "",
+      footerGithubIcon
+    );
+
+    const footerAsideLink = createAsideElem("mb-4", [
+      footerLinkedinLink,
+      footerGithubLink,
+    ]);
+
+    const footerSectionBox = createSectionElem("container p-4 pb-0", [
+      footerAsideLink,
+    ]);
+
+    const footerCopyrightLink = createAElem(
+      this.website,
+      "Country App",
+      "ms-2 text-white",
+      "_blank"
+    );
+    const footerCopyrightTest = createPElem("", "© 2020 Copyright:", [
+      footerCopyrightLink,
+    ]);
+    const footerCopyrightBox = createAsideElem("text-center p-3 blur-bg", [
+      footerCopyrightTest,
+    ]);
+    const footerBottom = createFooterElem("blue-bg text-center text-white", [
+      footerSectionBox,
+      footerCopyrightBox,
+    ]);
+
+    return footerBottom;
+  }
+}
+
+const footer = new Footer(
+  "https://www.linkedin.com/in/amir-mostafa-haji-sadeghian/",
+  "https://github.com/amir-mostafa-hs",
+  "https://amir-mostafa-hs.github.io/vanilla-javascript-project/"
+).createFooter();
+appContainer.append(footer);
