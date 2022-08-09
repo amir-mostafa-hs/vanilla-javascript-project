@@ -100,6 +100,13 @@ const createPElem = (classElem = "", textElem = "", chileElem = []) => {
   return p;
 };
 
+const createMainElem = (classElem = "", chileElem = []) => {
+  const main = document.createElement("main");
+  main.className = classElem;
+  main.append(...chileElem);
+  return main;
+};
+
 class Header {
   constructor(iconSrc, headerTest) {
     this.iconSrc = iconSrc;
@@ -148,6 +155,9 @@ const header = new Header(
   "Country App"
 ).createHeader();
 appContainer.append(header);
+
+const main = createMainElem("main-content");
+appContainer.append(main);
 
 class Footer {
   constructor(linkedin, github, website) {

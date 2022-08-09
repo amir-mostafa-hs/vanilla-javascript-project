@@ -5,3 +5,9 @@
 .blur-bg {
   background-color: rgba(0, 0, 0, 0.2);
 }
+
+.main-content {
+  min-width: 100vw;
+  min-height: 70vh;
+  background-color: rgb(99, 156, 255);
+}
