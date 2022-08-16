@@ -107,6 +107,13 @@ const createMainElem = (classElem = "", chileElem = []) => {
   return main;
 };
 
+const createSmallElem = (classElem = "", textElem = "") => {
+  const small = document.createElement("small");
+  small.className = classElem;
+  small.textContent = textElem;
+  return small;
+};
+
 class Header {
   constructor(iconSrc, headerTest) {
     this.iconSrc = iconSrc;
@@ -166,7 +173,7 @@ main.innerHTML = `<div class="row justify-content-evenly">
           This is a wider card with supporting text below as a natural lead-in
           to additional content. This content is a little bit longer.
         </p>
-        <p class="card-text card-footer bg-transparent border-success">
+        <p class="card-text card-footer bg-transparent border-dark">
           <small class="text-muted">Last updated 3 mins ago</small>
         </p>
       </div>
