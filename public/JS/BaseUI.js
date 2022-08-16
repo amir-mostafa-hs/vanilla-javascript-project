@@ -164,9 +164,9 @@ const header = new Header(
 appContainer.append(header);
 
 const main = createMainElem("main-content container-fluid");
-main.innerHTML = `<div class="row justify-content-evenly">
+main.innerHTML = `<div class="card-content row justify-content-evenly">
 <div class="card mb-3 light-gray col-3 mt-3">
-      <img src="https://cdn.vox-cdn.com/thumbor/NM4aLCXX-SjThGxJ4MnUtJwp1YE=/0x146:2040x1214/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/22801026/dbohn_210820_4722_0003.jpg" class="card-img-top mt-3" alt="..." />
+    <img src="https://cdn.vox-cdn.com/thumbor/NM4aLCXX-SjThGxJ4MnUtJwp1YE=/0x146:2040x1214/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/22801026/dbohn_210820_4722_0003.jpg" class="card-img-top mt-3" alt="..." />
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">
