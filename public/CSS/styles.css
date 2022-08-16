@@ -1,5 +1,5 @@
-.blue-bg {
-  background-color: rgba(5, 118, 248, 1);
+.dark-blue-bg {
+  background-color: rgb(25, 42, 86);
 }
 
 .blur-bg {
@@ -9,5 +9,9 @@
 .main-content {
   min-width: 100vw;
   min-height: 70vh;
-  background-color: rgb(99, 156, 255);
+  background-color: rgb(126, 142, 165);
+}
+
+.light-gray {
+  background-color: rgb(245, 246, 250);
 }
