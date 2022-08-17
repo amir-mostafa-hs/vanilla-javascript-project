@@ -27,7 +27,7 @@ const funcForCreateCard = (
     cardImageAlt
   );
   cardImage.addEventListener("error", (evt) => {
-    evt.target.src = "public/assets/images/NoImageFound.png";
+    evt.target.src = "public/Assets/images/NoImageFound.png";
   });
 
   const cardBox = createAsideElem("card m-3 light-gray col-3", [
@@ -40,7 +40,7 @@ const funcForCreateCard = (
 const fetchData = new Promise(async (resolve, reject) => {
   try {
     const url = new Request(
-      "https://newsapi.org/v2/top-headlines?category=technology&apiKey=e138810a494941319c95147361e0fbe5"
+      "https://newsapi.org/v2/top-headlines?category=technology&language=en&sortBy=popularity&apiKey=e138810a494941319c95147361e0fbe5"
     );
     const response = await fetch(url);
     const data = response.json();
@@ -58,7 +58,7 @@ fetchData
         item.title,
         item.description || item.content,
         item.publishedAt.replaceAll("T", " ").replaceAll("Z", ""),
-        item.urlToImage || "public/assets/images/NoImageFound.png",
+        item.urlToImage || "public/Assets/images/NoImageFound.png",
         item.author
       );
       arrayOfCardeElem.push(card);
