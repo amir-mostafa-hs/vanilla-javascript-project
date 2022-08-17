@@ -26,14 +26,50 @@ const funcForCreateCard = (
     "card-img-top mt-3",
     cardImageAlt
   );
+  cardImage.addEventListener("error", (evt) => {
+    evt.target.src = "public/assets/images/NoImageFound.png";
+  });
 
-  const cardBox = createAsideElem("card mb-3 light-gray col-3 mt-3", [
+  const cardBox = createAsideElem("card m-3 light-gray col-3", [
     cardImage,
     cardBody,
   ]);
   return cardBox;
 };
 
-const cardContainer = createSectionElem(
-  "card-content row justify-content-evenly"
-);
+const fetchData = new Promise(async (resolve, reject) => {
+  try {
+    const url = new Request(
+      "https://newsapi.org/v2/top-headlines?category=technology&apiKey=e138810a494941319c95147361e0fbe5"
+    );
+    const response = await fetch(url);
+    const data = response.json();
+    return resolve(data);
+  } catch (error) {
+    reject(error);
+  }
+});
+
+fetchData
+  .then((data) => {
+    const arrayOfCardeElem = [];
+    data.articles.forEach((item) => {
+      const card = funcForCreateCard(
+        item.title,
+        item.description || item.content,
+        item.publishedAt.replaceAll("T", " ").replaceAll("Z", ""),
+        item.urlToImage || "public/assets/images/NoImageFound.png",
+        item.author
+      );
+      arrayOfCardeElem.push(card);
+    });
+    return arrayOfCardeElem;
+  })
+  .then((cards) => {
+    const cardContainer = createSectionElem(
+      "card-content row justify-content-evenly",
+      cards
+    );
+    main.append(cardContainer);
+  })
+  .catch((error) => console.error(error));

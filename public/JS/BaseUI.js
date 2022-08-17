@@ -159,26 +159,11 @@ class Header {
 
 const header = new Header(
   "https://img.icons8.com/bubbles/2x/america.png",
-  "Country App"
+  "News App"
 ).createHeader();
 appContainer.append(header);
 
 const main = createMainElem("main-content container-fluid");
-main.innerHTML = `<div class="card-content row justify-content-evenly">
-<div class="card mb-3 light-gray col-3 mt-3">
-    <img src="https://cdn.vox-cdn.com/thumbor/NM4aLCXX-SjThGxJ4MnUtJwp1YE=/0x146:2040x1214/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/22801026/dbohn_210820_4722_0003.jpg" class="card-img-top mt-3" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">
-          This is a wider card with supporting text below as a natural lead-in
-          to additional content. This content is a little bit longer.
-        </p>
-        <p class="card-text card-footer bg-transparent border-dark">
-          <small class="text-muted">Last updated 3 mins ago</small>
-        </p>
-      </div>
-    </div>
-</div>`;
 appContainer.append(main);
 
 class Footer {
@@ -217,7 +202,7 @@ class Footer {
 
     const footerCopyrightLink = createAElem(
       this.website,
-      "Country App",
+      "News App",
       "ms-2 text-white",
       "_blank"
     );
