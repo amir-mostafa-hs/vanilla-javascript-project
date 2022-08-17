@@ -39,10 +39,9 @@ const funcForCreateCard = (
 
 const fetchData = new Promise(async (resolve, reject) => {
   try {
-    const url = new Request(
+    const response = await fetch(
       "https://newsapi.org/v2/top-headlines?category=technology&language=en&sortBy=popularity&apiKey=e138810a494941319c95147361e0fbe5"
     );
-    const response = await fetch(url);
     const data = response.json();
     return resolve(data);
   } catch (error) {
